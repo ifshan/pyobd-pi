@@ -9,6 +9,7 @@
 
 import os
 import wx
+import wx.adv
 import time
 from threading import Thread
 
@@ -20,7 +21,7 @@ from obd_sensors import *
 
 # OBD variables
 BACKGROUND_FILENAME = "bg_black.jpg"
-LOGO_FILENAME 		= "cowfish.png"
+LOGO_FILENAME       = "cowfish.png"
 
 #-------------------------------------------------------------------------------
 
@@ -495,7 +496,7 @@ class OBDFrame0(wx.Frame):
 
 #-------------------------------------------------------------------------------
 
-class OBDSplashScreen(wx.SplashScreen):
+class OBDSplashScreen(wx.adv.SplashScreen):
     """
     Splash screen.
     """
@@ -513,7 +514,8 @@ class OBDSplashScreen(wx.SplashScreen):
         
         splashStyle = wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT
         splashDuration = SPLASHSCREEN_TIMEOUT
-        wx.SplashScreen.__init__(self, bitmap, splashStyle, splashDuration, parent)
+        wx.adv.SplashScreen.__init__(self, bitmap, splashStyle, splashDuration, parent)
+        #wx.SplashScreen.__init__(self, bitmap, splashStyle, splashDuration, parent)
 
         self.Bind(wx.EVT_CLOSE, self.OnExit)
         wx.Yield()
